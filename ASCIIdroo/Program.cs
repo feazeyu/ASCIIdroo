@@ -101,7 +101,7 @@ namespace ASCIIhome
                         }
                         Console.WriteLine(" ");
                     }
-                    Console.WriteLine("Would you like to see the hidden canvas? (Y/N)");
+                    Console.WriteLine("Would you like to see the hidden canvas? (Y/N)");//s
                     if (Console.ReadLine().ToLower() == "y") {
                         MakeChars();
                         for (int y = 0; y < height; y++)
