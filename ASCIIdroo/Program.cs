@@ -64,7 +64,7 @@ namespace ASCIIhome
                         }
                         //}
                     }
-                    catch(SystemException e) { Console.WriteLine(e.Message);}
+                    catch(SystemException e) { Console.WriteLine(e.Message);Command(Console.ReadLine());break;}
                     width = result;
                     map = new int[width*2, height*2];
                     hiddenMap = new string[width, height];
@@ -86,7 +86,7 @@ namespace ASCIIhome
                         }
                         //}
                     }
-                    catch (SystemException e) { Console.WriteLine(e.Message); }
+                    catch (SystemException e) { Console.WriteLine(e.Message);Command(Console.ReadLine());break;}
                     height = result;
                     map = new int[width*2, height*2];
                     hiddenMap = new string[width, height];
