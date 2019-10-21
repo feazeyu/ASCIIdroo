@@ -30,7 +30,7 @@ namespace ASCIIhome
             {
                 for (int x = 0; x < width; x++)
                 {
-                    map[x, y] = 0;
+                    hiddenMap[x, y] = "_";
                 }
             }
 
@@ -66,7 +66,8 @@ namespace ASCIIhome
                     }
                     catch(SystemException e) { Console.WriteLine(e.Message);}
                     width = result;
-                    map = new int[width, height];
+                    map = new int[width*2, height*2];
+                    hiddenMap = new string[width, height];
                     Init();
                     Console.WriteLine($"Width has been succesfully changed to: {result}");
                     Command(Console.ReadLine());
@@ -87,7 +88,8 @@ namespace ASCIIhome
                     }
                     catch (SystemException e) { Console.WriteLine(e.Message); }
                     height = result;
-                    map = new int[width, height];
+                    map = new int[width*2, height*2];
+                    hiddenMap = new string[width, height];
                     Init();
                     Console.WriteLine($"Height has been succesfully changed to: {result}");
                     Command(Console.ReadLine());
