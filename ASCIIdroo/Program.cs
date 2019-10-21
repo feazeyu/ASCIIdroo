@@ -31,10 +31,17 @@ namespace ASCIIhome
             {
                 for (int x = 0; x < width; x++)
                 {
-                    hiddenMap[x, y] = "_";
+                    hiddenMap[x, y] = " ";
                 }
             }
 
+            for (int y = 0; y < height*2; y++)
+            {
+                for(int x = 0; x < width*2; x++)
+                {
+                    map[x, y] = 0;
+                }
+            }
 
         }
         static void Command(string input)
@@ -105,7 +112,8 @@ namespace ASCIIhome
                         Console.WriteLine(" ");
                     }
                     Console.WriteLine("Would you like to see the hidden canvas? (Y/N)");//s
-                    if (Console.ReadLine().ToLower() == "y") {
+                    string userIn = Console.ReadLine().ToLower();
+                    if (userIn == "y") {
                         MakeChars();
                         for (int y = 0; y < height*2; y++)
                         {
@@ -115,7 +123,9 @@ namespace ASCIIhome
                             }
                             Console.WriteLine(" ");
                         }
-                    }
+                    } else if (userIn != "n"){
+                        Command(userIn);
+                    };
                     Command(Console.ReadLine()); 
                     break;
                 case "tvoje mama je gay":
