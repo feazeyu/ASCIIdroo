@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ASCIIhome
 {
@@ -117,6 +118,19 @@ namespace ASCIIhome
                     }
                     Command(Console.ReadLine()); 
                     break;
+                case "tvoje mama je gay":
+                    Console.WriteLine("Ne Vito. Neni");
+                    Console.WriteLine("5");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("4");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("3");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("2");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("YEET!");
+                    Thread.Sleep(1000);
+                    break;
                 case "line":
                     Console.WriteLine("Please insert the coordinates of your lines' end (x1 y1 x2 y2)");
                     string[] inputArray = Console.ReadLine().Split(' ');
@@ -146,7 +160,10 @@ namespace ASCIIhome
                     catch (SystemException e)
                     {
                         Console.WriteLine(e.Message);
+                        Command(Console.ReadLine());
+                        break;
                     };
+                    MakeChars();
                     Command("draw");
                     Command(Console.ReadLine());
                     break;
@@ -163,13 +180,13 @@ namespace ASCIIhome
                     chars[1] = $"{map[x + 1, y]}";
                     chars[2] = $"{map[x, y + 1]}";
                     chars[3] = $"{map[x + 1, y + 1]}";
-                    Console.WriteLine($"{chars[0]}{chars[1]}{chars[2]}{chars[3]}");
+                    //Console.WriteLine($"{chars[0]}{chars[1]}{chars[2]}{chars[3]}");
                     switch ($"{chars[0]}{chars[1]}{chars[2]}{chars[3]}") {
-                        case "0000": hiddenMap[x / 2, y / 2] = "_" ; break;
-                        case "0001": hiddenMap[x / 2, y / 2] = "_"; break;
-                        case "0010": hiddenMap[x / 2, y / 2] = "_"; break;
-                        case "0100": hiddenMap[x / 2, y / 2] = "_"; break;
-                        case "1000": hiddenMap[x / 2, y / 2] = "_"; break;
+                        case "0000": hiddenMap[x / 2, y / 2] = " " ; break;
+                        case "0001": hiddenMap[x / 2, y / 2] = ","; break;
+                        case "0010": hiddenMap[x / 2, y / 2] = "."; break;
+                        case "0100": hiddenMap[x / 2, y / 2] = "'"; break;
+                        case "1000": hiddenMap[x / 2, y / 2] = "'"; break;
                         case "0011": hiddenMap[x / 2, y / 2] = "-"; break;
                         case "0101": hiddenMap[x / 2, y / 2] = "|"; break;
                         case "1001": hiddenMap[x / 2, y / 2] = "\\"; break;
