@@ -4,8 +4,8 @@ namespace ASCIIhome
 {
     class Program
     {
-        static int width = 5;
-        static int height = 5;
+        static int width = 50;
+        static int height = 50;
         static int result;
         static int[,] map = new int[width*2, height*2];
         static string[,] hiddenMap = new string[width, height];
@@ -93,22 +93,22 @@ namespace ASCIIhome
                     Command(Console.ReadLine());
                     break;
                 case "draw":
-                    for (int y = 0; y < height*2; y++)
+                    for (int y = 0; y < height; y++)
                     {
-                        for (int x = 0; x < width*2; x++)
+                        for (int x = 0; x < width; x++)
                         {
-                            Console.Write($" {map[x, y]}");
+                            Console.Write($" {hiddenMap[x, y]}");
                         }
                         Console.WriteLine(" ");
                     }
                     Console.WriteLine("Would you like to see the hidden canvas? (Y/N)");//s
                     if (Console.ReadLine().ToLower() == "y") {
                         MakeChars();
-                        for (int y = 0; y < height; y++)
+                        for (int y = 0; y < height*2; y++)
                         {
-                            for (int x = 0; x < width; x++)
+                            for (int x = 0; x < width*2; x++)
                             {
-                                Console.Write($" {hiddenMap[x, y]}");
+                                Console.Write($" {map[x, y]}");
                             }
                             Console.WriteLine(" ");
                         }
